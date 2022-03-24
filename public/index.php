@@ -5,6 +5,9 @@ declare(strict_types=1);
 use App\Zoo\Poisson;
 use App\Zoo\Oiseau;
 use App\Calcul\Calculatrice;
+use App\Calcul\Rectangle;
+use App\Calcul\Square;
+use App\Calcul\TriangleEquilateral;
 
     spl_autoload_register(function ($class) {
         $class = str_replace('\\', '/', $class);
@@ -51,6 +54,20 @@ use App\Calcul\Calculatrice;
             ->register('/calculatrice', function(){ 
                 $calculatrice = new Calculatrice();
                 require_once ('../views/calculatrice.php');
+            })
+            ->register('/shape', function(){ 
+                if(isset($_POST) && !empty($_POST)){
+                    $edgeA = floatval($_POST['edgeA']);
+                    $edgeB = floatval($_POST['edgeB']);
+                    if($_POST['shape'] == 'square' && $edgeA > 0){
+                        $square = new Square($edgeA); 
+                    } else if($_POST['shape'] == 'rectangle' && $edgeA > 0 && $edgeB > 0){
+                        $rectangle = new Rectangle($edgeA, $edgeB);
+                    } else if($_POST['shape'] == 'triangleEquilateral' && $edgeA > 0){
+                        $triangleEquilateral = new TriangleEquilateral($edgeA);
+                    }    
+                }
+                require_once ('../views/shape.php');
             });
 
     echo $router->resolve($_SERVER['REQUEST_URI']);

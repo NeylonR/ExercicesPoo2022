@@ -12,5 +12,6 @@
     <a href="/poisson">Chercher un poisson</a>
 
     <a href="/calculatrice">Allez à la calculatrice.</a>
+    <a href="/shape">Allez à l'exo des formes.</a>
 </body>
 </html>

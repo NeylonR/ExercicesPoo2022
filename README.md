@@ -8,9 +8,12 @@ La classe parent sera une classe abstraite qui ne pourra donc pas avoir d'instan
 
 La classe parent possèdera 3 propriétés : **Race**,**Nom** et **Moyen de locomotion**.
 
-Elle possèdera aussi 3 méthodes : 
-- Identify : Une méthode qui permet à l'objet de s'identifier en utilisant son nom et sa race (Une phrase qui explique l'action) 
-- Flee : Qui utilisera son moyen de locomotion pour s'enfuir (Une phrase qui explique l'action) 
+Elle possèdera aussi 3 méthodes :
+
+- Identify : Une méthode qui permet à l'objet de s'identifier en utilisant son nom et sa race (Une phrase qui explique l'action)
+
+- Flee : Qui utilisera son moyen de locomotion pour s'enfuir (Une phrase qui explique l'action)
+
 - Eat : Qui sera une méthode abstraite à définir chez la classe enfant.
 
 La propriété moyen de locomotion sera **surchargée** chez les classes enfant, et chacune des classes enfant possèdera une méthode unique qu'il vous adviendra de créer.
@@ -24,10 +27,11 @@ Vous pourrez créer une barre de navigation pour faciliter la navigation entre l
 ### BONUS
 
 1. Créez une classe calculatrice qui permet d'effectuer des calculs sur des éléments. Cette classe possèdera 5 méthodes (add, multiply, divide, substract, median) qui effectueront une opération à partir d'un formulaire implanté sur une page.
+
    - Add : addition
    - Multiply : multiplication
    - Divide : division
-   -Substract : soustraction
-   -Median : Calculer la médiane
+   - Substract : soustraction
+   - Median : Calculer la médiane
 
-2. Créez une classe Shape (oui Forme) qui sera une classe abstraite delaquelle vous créerez au moins 3 formes enfants. Shape possèdera deux méthodes abstraites perimeter et area qui devront être surchargée dans les classes enfant. Vous poueez implémenter un formulaire qui permettra de calculer le périmètre et l'aire en fonction de la forme et de ses mesures.
+2. Créez une classe Shape (oui Forme) qui sera une classe abstraite delaquelle vous créerez au moins 3 formes enfants. Shape possèdera deux méthodes abstraites perimeter et area qui devront être surchargée dans les classes enfant. Vous pouvez implémenter un formulaire qui permettra de calculer le périmètre et l'aire en fonction de la forme et de ses mesures.
