@@ -8,7 +8,7 @@
 </head>
 <body>
     <h3>Vous demandez son nom au poisson.</h3>
-    <p><?= $poisson->identify(); ?>.</p>
+    <p><?= $this->poisson->identify(); ?>.</p>
     <a href="/observePoisson">L'observer.</a>
     <a href="/catchPoisson">Essayer de l'attraper !</a>
     <a href="/poisson">Retour</a>

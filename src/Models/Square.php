@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Calcul;
+namespace App\Models;
 
 class Square extends Shape
 {

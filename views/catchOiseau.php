@@ -8,7 +8,7 @@
 </head>
 <body>
     <h3>Vous essayez d'attraper l'oiseau.</h3>
-    <p>Malheureusement <?= $oiseau->flee() ?>.</p>
+    <p>Malheureusement <?= $this->oiseau->flee() ?>.</p>
 
     <a href="/">Retour</a>
 </body>

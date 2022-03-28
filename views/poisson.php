@@ -7,7 +7,7 @@
     <title>Poisson</title>  
 </head>
 <body>
-    <h2>Vous trouvez <?= $poisson->rest() ?></h2>
+    <h2>Vous trouvez <?= $this->poisson->rest() ?></h2>
 
     <a href="/identifyPoisson">Lui demander son nom.</a>
     <a href="/observePoisson">L'observer.</a>

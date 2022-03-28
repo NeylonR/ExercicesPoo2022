@@ -31,35 +31,9 @@
 
     <?php
     if(isset($_POST) && !empty($_POST)){
-        $edgeA = floatval($_POST['edgeA']);
-        $edgeB = floatval($_POST['edgeB']);
-        if($_POST['shape'] == 'square' && $edgeA > 0){
-            if($_POST['math'] == 'perimeter'){
-                echo "Le périmetre d'un carré dont les bords sont de ".$edgeA."cm est égal à ". $square->perimeter()."cm";
-            } else if($_POST['math'] == 'area'){
-                echo "L'aire du carré dont les bords sont de".$edgeA."cm est égal à ".$square->area()."cm².";
-            } else{
-                echo 'erreur';
-            } 
-        } else if($_POST['shape'] == 'rectangle' && $edgeA > 0 && $edgeB > 0){
-            if($_POST['math'] == 'perimeter'){
-                echo "Le périmetre d'un rectangle dont les bords sont de ".$edgeA."cm et ".$edgeB."cm est égal à ". $rectangle->perimeter()."cm";
-            } else if($_POST['math'] == 'area'){
-                echo "L'aire du rectangle dont les bords sont de ".$edgeA."cm et ".$edgeB."cm est égal à ".$rectangle->area()."cm².";
-            } else{
-                echo 'erreur';
-            }
-        } else if($_POST['shape'] == 'triangleEquilateral' && $edgeA > 0){
-            if($_POST['math'] == 'perimeter'){
-                echo "Le périmetre d'un triangle équilatéral dont les bords sont de ".$edgeA."cm est égal à ". $triangleEquilateral->perimeter()."cm";
-            } else if($_POST['math'] == 'area'){
-                echo "L'aire du triangle équilatéral dont les bords sont de".$edgeA."cm est égal à ".$triangleEquilateral->area()."cm².";
-            } else{
-                echo 'erreur';
-            }
-        } else{
-            echo 'Erreur lors de la complétion des champs.';
-        }       
+        if($this->result){
+            echo '<h4>'.$this->result.'</h4>';
+        }
     }
     ?>
     <br>

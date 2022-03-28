@@ -8,7 +8,7 @@
 </head>
 <body>
     <h3>Vous vous mettez en retrait et observez l'oiseau.</h3>
-    <p>Il <?= $oiseau->eat(); ?>.</p>
+    <p>Il <?= $this->oiseau->eat(); ?>.</p>
 
     <a href="/catchOiseau">Essayer de l'attraper !</a>
     <a href="/oiseau">Retour</a>

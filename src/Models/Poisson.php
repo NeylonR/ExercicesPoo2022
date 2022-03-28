@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Zoo;
+namespace App\Models;
 
 class Poisson extends Animal
 {

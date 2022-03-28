@@ -2,72 +2,30 @@
 
 declare(strict_types=1);
 
-use App\Zoo\Poisson;
-use App\Zoo\Oiseau;
-use App\Calcul\Calculatrice;
-use App\Calcul\Rectangle;
-use App\Calcul\Square;
-use App\Calcul\TriangleEquilateral;
+$root = dirname(__DIR__).DIRECTORY_SEPARATOR;
+define('VIEWS_PATH', $root.'views'.DIRECTORY_SEPARATOR);
 
-    spl_autoload_register(function ($class) {
-        $class = str_replace('\\', '/', $class);
-        $path = '../'.str_replace('App', 'src', $class).'.php';
+spl_autoload_register(function ($class) {
+    $class = str_replace('\\', '/', $class);
+    $path = '../'.str_replace('App', 'src', $class).'.php';
 
-        require $path;
-    });
+    require $path;
+});
 
-    $router = new \App\Router();
-    
-    $router->register('/', function(){ require ('../views/homepage.php');})
-           ->register('/oiseau', function(){ 
-                $oiseau = new Oiseau('oiseau','jeanOiseau');
-                require_once ('../views/oiseau.php');
-            })
-            ->register('/observeOiseau', function(){ 
-                $oiseau = new Oiseau('oiseau','jeanOiseau');
-                require_once ('../views/observeOiseau.php');
-            })
-            ->register('/catchOiseau', function(){ 
-                $oiseau = new Oiseau('oiseau','jeanOiseau');
-                require_once ('../views/catchOiseau.php');
-            })
-            ->register('/identifyOiseau', function(){ 
-                $oiseau = new Oiseau('oiseau','jeanOiseau');
-                require_once ('../views/identifyOiseau.php');
-            })
-           ->register('/poisson', function(){ 
-                $poisson = new poisson('poisson','jeanPoisson');
-                require_once ('../views/poisson.php');
-            })
-            ->register('/observePoisson', function(){ 
-                $poisson = new poisson('poisson','jeanPoisson');
-                require_once ('../views/observePoisson.php');
-            })
-            ->register('/catchPoisson', function(){ 
-                $poisson = new poisson('poisson','jeanPoisson');
-                require_once ('../views/catchPoisson.php');
-            })
-            ->register('/identifyPoisson', function(){ 
-                $poisson = new Poisson('poisson','jeanPoisson');
-                require_once ('../views/identifyPoisson.php');
-            })
-            ->register('/calculatrice', function(){ 
-                $calculatrice = new Calculatrice();
-                require_once ('../views/calculatrice.php');
-            })
-            ->register('/shape', function(){ 
-                if(isset($_POST) && !empty($_POST)){
-                    $edgeA = floatval($_POST['edgeA']);
-                    $edgeB = floatval($_POST['edgeB']);
-                    if($_POST['shape'] == 'square' && $edgeA > 0){
-                        $square = new Square($edgeA); 
-                    } else if($_POST['shape'] == 'rectangle' && $edgeA > 0 && $edgeB > 0){
-                        $rectangle = new Rectangle($edgeA, $edgeB);
-                    } else if($_POST['shape'] == 'triangleEquilateral' && $edgeA > 0){
-                        $triangleEquilateral = new TriangleEquilateral($edgeA);
-                    }    
-                }
-                require_once ('../views/shape.php');
-            });
+$router = new \App\Router();
 
-    echo $router->resolve($_SERVER['REQUEST_URI']);
+$router->get('/', [App\Controllers\ExerciceController::class, 'index'])
+        ->get('/oiseau', [App\Controllers\ExerciceController::class, 'oiseau'])
+        ->get('/observeOiseau', [App\Controllers\ExerciceController::class, 'observeOiseau'])
+        ->get('/catchOiseau', [App\Controllers\ExerciceController::class, 'catchOiseau'])
+        ->get('/identifyOiseau', [App\Controllers\ExerciceController::class, 'identifyOiseau'])
+        ->get('/poisson', [App\Controllers\ExerciceController::class, 'poisson'])
+        ->get('/observePoisson', [App\Controllers\ExerciceController::class, 'observePoisson'])
+        ->get('/catchPoisson', [App\Controllers\ExerciceController::class, 'catchPoisson'])
+        ->get('/identifyPoisson', [App\Controllers\ExerciceController::class, 'identifyPoisson'])
+        ->get('/calculatrice', [App\Controllers\ExerciceController::class, 'calculatrice'])
+        ->post('/calculatrice', [App\Controllers\ExerciceController::class, 'calculatriceCalcul'])
+        ->get('/shape', [App\Controllers\ExerciceController::class, 'shape'])
+        ->post('/shape', [App\Controllers\ExerciceController::class, 'shapeCalcul']);
+
+echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));

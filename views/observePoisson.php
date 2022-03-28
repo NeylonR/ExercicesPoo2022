@@ -8,7 +8,7 @@
 </head>
 <body>
     <h3>Vous vous mettez en retrait et observez le poisson.</h3>
-    <p>Il <?= $poisson->eat(); ?>.</p>
+    <p>Il <?= $this->poisson->eat(); ?>.</p>
     <a href="/catchPoisson">Essayer de l'attraper !</a>
     <a href="/poisson">Retour</a>
 </body>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <h3>Vous demandez son nom à l'oiseau.</h3>
-    <p><?= $oiseau->identify(); ?>.</p>
+    <p><?= $this->oiseau->identify(); ?>.</p>
     <a href="/observeOiseau">L'observer.</a>
     <a href="/catchOiseau">Essayer de l'attraper !</a>
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Zoo;
+namespace App\Models;
 
 abstract class Animal
 {
